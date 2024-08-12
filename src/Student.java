@@ -1,5 +1,5 @@
 public abstract class Student {
-    String fullName;
+    private String fullName;
     private int powerOfWitchcraft;     // мощность колдовства
     private int transgression;         // расстояние для трансгрессии
 
@@ -9,6 +9,9 @@ public abstract class Student {
         this.transgression = transgression;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
 
     public int getPowerOfWitchcraft() {
         return powerOfWitchcraft;
@@ -39,9 +42,9 @@ public abstract class Student {
         String result;
 
         if (student1.powerOfWitchcraft > student2.powerOfWitchcraft) {
-            result = student1.fullName + " обладает большей мощностью магии, чем " + student2.fullName;
+            result = student1.getFullName() + " обладает большей мощностью магии, чем " + student2.getFullName() + ".";
         } else {
-            result = student2.fullName + " обладает большей мощностью магии, чем " + student1.fullName;
+            result = student2.getFullName() + " обладает большей мощностью магии, чем " + student1.getFullName() + ".";
         }
         System.out.println(result);
     }
@@ -49,9 +52,9 @@ public abstract class Student {
         public static void compareOfTransgressionRange(Student student1, Student student2) {
             String result;
         if (student1.transgression > student2.transgression) {
-            result = student1.fullName + " обладает большей дальностью трансгрессии, чем " + student2.fullName;
+            result = student1.getFullName() + " обладает большей дальностью трансгрессии, чем " + student2.getFullName() + ".";
         } else {
-            result = student2.fullName + " обладает большей дальностью трансгрессии, чем " + student1.fullName;
+            result = student2.getFullName() + " обладает большей дальностью трансгрессии, чем " + student1.getFullName() + ".";
         }
         System.out.println(result);
     }

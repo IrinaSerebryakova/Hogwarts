@@ -2,7 +2,7 @@ public class Gryffindor extends Student{
    private int nobility;   //"благородство"
    private int honor;      //"честь"
    private int bravery;    //"храбрость"
-   int amountOfPoints = nobility + honor + bravery;
+   private int amountOfPoints;
    public Gryffindor(String fullName, int powerOfWitchcraft, int transgression,int nobility, int honor,int bravery) {
       super(fullName, powerOfWitchcraft, transgression);
       this.nobility = nobility;
@@ -43,11 +43,13 @@ public class Gryffindor extends Student{
    }
 
    public static void compareTo(Gryffindor student1, Gryffindor student2) {
+      student1.amountOfPoints = student1.nobility + student1.honor + student1.bravery;
+      student2.amountOfPoints = student2.nobility + student2.honor + student2.bravery;
       String result;
       if(student1.amountOfPoints > student2.amountOfPoints){
-         result = student1.fullName + " - лучший Гриффиндорец, чем " + student2.fullName;
+         result = student1.getFullName() + " - лучший Гриффиндорец, чем " + student2.getFullName() + ".";
       }else{
-         result = student2.fullName + " - лучший Гриффиндорец, чем " + student1.fullName;
+         result = student2.getFullName() + " - лучший Гриффиндорец, чем " + student1.getFullName() + ".";
       }
       System.out.println(result);
    }

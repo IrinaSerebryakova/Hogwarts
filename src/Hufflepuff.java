@@ -2,7 +2,7 @@ public class Hufflepuff extends Student{  //Пуффендуй
     private int diligence;   //"трудолюбие"
     private int loyalty;   //"верность"
     private int honesty;   //"честность"
-    int amountOfPoints = diligence + loyalty + honesty;
+    private int amountOfPoints;
     public Hufflepuff(String fullName, int powerOfWitchcraft, int transgression, int diligence, int loyalty, int honesty) {
         super(fullName, powerOfWitchcraft, transgression);
         this.diligence = diligence;
@@ -18,11 +18,13 @@ public class Hufflepuff extends Student{  //Пуффендуй
                 '}';
     }
     public static void compareTo(Hufflepuff student1, Hufflepuff student2) {
+        student1.amountOfPoints = student1.diligence + student1.loyalty + student1.honesty;
+        student2.amountOfPoints = student2.diligence + student2.loyalty + student2.honesty;
         String result;
         if(student1.amountOfPoints > student2.amountOfPoints){
-            result = student1.fullName + " - лучший Пуффендуец, чем " + student2.fullName;
+            result = student1.getFullName() + " - лучший Пуффендуец, чем " + student2.getFullName() + ".";
         }else{
-            result = student2.fullName + " - лучший Пуффендуец, чем " + student1.fullName;
+            result = student2.getFullName() + " - лучший Пуффендуец, чем " + student1.getFullName() + ".";
         }
         System.out.println(result);
     }
